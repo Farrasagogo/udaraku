@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:udaraku2/lib/airquality.dart';
+import 'package:udaraku2/page/airquality.dart';
 
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Udaraku2',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: LoginPage(),
+    );
+  }
+}
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -41,7 +57,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       fit: StackFit.expand,
       children: [
         Image.asset(
-          'assets/img/',
+          'assets/img/loginBackground.jpg',
           fit: BoxFit.cover,
         ),
         Scaffold(
@@ -61,7 +77,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                     child: SlideTransition(
                       position: _slideAnimation,
                       child: Image.asset(
-                        'assets/img/kitty.png',
+                        'assets/img/logo.png',
                         height: 100,
                       ),
                     ),

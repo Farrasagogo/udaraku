@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'package:udaraku2/page/article.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AirQualityScreen(),
-    );
-  }
-}
+
 
 class AirQualityScreen extends StatefulWidget {
   @override
@@ -167,7 +158,7 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
               _buildNavItem(Icons.home, 'Home', 0),
               _buildNavItem(Icons.search, 'Search', 1),
               _buildNavItem(Icons.bar_chart, 'Analysis', 2),
-              _buildNavItem(Icons.store, 'Store', 3),
+              _buildNavItem(Icons.book, 'Article', 3),
               _buildNavItem(Icons.person, 'Profile', 4),
             ],
             currentIndex: _currentIndex,
@@ -175,6 +166,17 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
               setState(() {
                 _currentIndex = index;
               });
+              if (index == 3) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ArticlePage()),
+                );
+              } else if (index == 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AirQualityScreen()),
+                );
+              }
             },
           ),
         ),
