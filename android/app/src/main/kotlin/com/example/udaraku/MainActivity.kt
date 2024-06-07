@@ -1,4 +1,4 @@
-package com.example.udaraku2
+package com.example.udaraku
 
 import io.flutter.embedding.android.FlutterActivity
 
