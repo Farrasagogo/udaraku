@@ -62,6 +62,13 @@ class LoginPage extends StatelessWidget {
                               minimumSize: Size(double.infinity, 50),
                             ),
                           ),
+                          SizedBox(height: 16.0),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/register');
+                            },
+                            child: Text('Don\'t have an account? Register'),
+                          ),
                         ],
                       ),
                     ),

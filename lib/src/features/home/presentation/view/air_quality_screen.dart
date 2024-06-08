@@ -38,7 +38,7 @@ class AirQualityScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 16),
                 const Text(
-                  'Your Location Air Quality',
+                  'Air Quality Jember',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8),
@@ -89,7 +89,7 @@ class AirQualityScreen extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              '$aqi AQI',
+              '$aqi PPM',
               style: TextStyle(fontSize: 16),
             ),
           ],

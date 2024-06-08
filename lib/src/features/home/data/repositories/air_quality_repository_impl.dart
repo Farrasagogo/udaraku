@@ -14,8 +14,13 @@ class AirQualityRepositoryImpl implements AirQualityRepository {
         return [];
       } else if (data is Map<dynamic, dynamic>) {
         return data.entries.map((entry) {
-          final int aqi = entry.value is int ? entry.value : int.parse(entry.value.toString());
-          return AirQualityModel(location: entry.key, aqi: aqi);
+          final value = entry.value as Map<dynamic, dynamic>;
+          return AirQualityModel(
+            location: entry.key,
+            aqi: value['aqi'] as int,
+            humidity: value['hum'] as int,
+            temperature: value['temp'] as int,
+          );
         }).toList();
       } else {
         return [];

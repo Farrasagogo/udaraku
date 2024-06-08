@@ -28,6 +28,20 @@ class RegisterPage extends StatelessWidget {
                         children: [
                           TextFormField(
                             decoration: InputDecoration(
+                              labelText: 'Name',
+                              prefixIcon: Icon(Icons.person),
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter your name';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) => viewModel.name = value!,
+                          ),
+                          SizedBox(height: 16.0),
+                          TextFormField(
+                            decoration: InputDecoration(
                               labelText: 'Email',
                               prefixIcon: Icon(Icons.email),
                             ),
