@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:udaraku/src/features/auth/presentation/login/login_page.dart';
-import 'package:udaraku/src/features/auth/presentation/register/register_page.dart';
+import 'package:udaraku/src/routing/route.dart'; // Import the routes file
 import 'package:firebase_core/firebase_core.dart';
-import 'package:udaraku/src/features/home/presentation/view/air_quality_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,18 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Udaraku2',
+      debugShowCheckedModeBanner: false,
+      title: 'Udaraku',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/',
-      routes: {
-        '/': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
-        '/home': (context) => AirQualityScreen(),
-        // Add more routes here
-      },
+      routes: routes, // Pass the routes map from routes.dart
     );
   }
 }
-

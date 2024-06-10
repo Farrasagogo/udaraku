@@ -1,22 +1,27 @@
 import 'package:udaraku/src/features/home/domain/entities/air_quality.dart';
 
 class AirQualityModel extends AirQuality {
-  final int humidity;
-  final int temperature;
-
   AirQualityModel({
     required String location,
     required int aqi,
-    required this.humidity,
-    required this.temperature,
-  }) : super(location: location, aqi: aqi);
+    required String date,
+    required int humidity,
+    required int temperature,
+  }) : super(
+          location: location,
+          aqi: aqi,
+          date: date,
+          humidity: humidity,
+          temperature: temperature,
+        );
 
-  factory AirQualityModel.fromMap(Map<String, dynamic> data) {
+  factory AirQualityModel.fromMap(Map<dynamic, dynamic> data, String location) {
     return AirQualityModel(
-      location: data['location'] as String,
+      location: location,
       aqi: data['aqi'] as int,
-      humidity: data['humidity'] as int,
-      temperature: data['temperature'] as int,
+      date: data['date'] as String,
+      humidity: data['hum'] as int,
+      temperature: data['temp'] as int,
     );
   }
 
@@ -24,6 +29,7 @@ class AirQualityModel extends AirQuality {
     return {
       'location': location,
       'aqi': aqi,
+      'date': date,
       'humidity': humidity,
       'temperature': temperature,
     };
