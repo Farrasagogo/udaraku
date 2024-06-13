@@ -3,12 +3,19 @@ import 'package:udaraku/src/features/geo/data/geo_repositories.dart';
 import 'package:udaraku/src/utils/user_manager.dart';
 import 'package:udaraku/src/features/geo/data/geocoding_service.dart';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31e0db8a06dfb47ff3f0e55147a82cb8ae5664cf
 class GeoViewModel extends ChangeNotifier {
   final UserManager _userManager;
   final AirQualityService _airQualityService;
   final GeocodingService _geocodingService;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 31e0db8a06dfb47ff3f0e55147a82cb8ae5664cf
   GeoViewModel(this._userManager, this._airQualityService, this._geocodingService);
 
   String? userName;
@@ -17,6 +24,7 @@ class GeoViewModel extends ChangeNotifier {
   String? locality;
   Map<String, dynamic>? airQualityData;
   String? errorMessage;
+<<<<<<< HEAD
   bool isLoading = false;
 
   Future<void> fetchUserData() async {
@@ -24,6 +32,10 @@ class GeoViewModel extends ChangeNotifier {
     errorMessage = null;
     notifyListeners();
 
+=======
+
+  Future<void> fetchUserData() async {
+>>>>>>> 31e0db8a06dfb47ff3f0e55147a82cb8ae5664cf
     try {
       var userData = await _userManager.getUserLocation();
       if (userData != null) {
@@ -37,8 +49,11 @@ class GeoViewModel extends ChangeNotifier {
     } catch (e) {
       errorMessage = 'An error occurred: $e';
     }
+<<<<<<< HEAD
 
     isLoading = false;
+=======
+>>>>>>> 31e0db8a06dfb47ff3f0e55147a82cb8ae5664cf
     notifyListeners();
   }
 
@@ -46,7 +61,11 @@ class GeoViewModel extends ChangeNotifier {
     if (latitude != null && longitude != null) {
       locality = await _geocodingService.getLocality(latitude!, longitude!);
       if (locality == null || locality!.startsWith("Error")) {
+<<<<<<< HEAD
         errorMessage = locality;
+=======
+        errorMessage = locality;  // Store the error message
+>>>>>>> 31e0db8a06dfb47ff3f0e55147a82cb8ae5664cf
       } else {
         await fetchAirQualityData(locality!);
       }
